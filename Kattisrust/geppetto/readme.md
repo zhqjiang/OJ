@@ -1,3 +1,5 @@
-[Geppetto](https://open.kattis.com/problems/geppetto/statistics)
+[Geppetto](https://open.kattis.com/problems/geppetto)
 
-Run time: 0.00 s
+Source: Croatian Open Competition in Informatics 2015/2016, contest #2
+
+Run time: 0.00s

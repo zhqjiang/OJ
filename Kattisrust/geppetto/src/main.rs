@@ -1,8 +1,12 @@
+/*
+* [Geppetto](https://open.kattis.com/problems/geppetto)
+* Run time: 0.00s
+*/
 use std::io;
 
 fn solve(m: &[u32; 20], n: usize) -> usize {
-    let max = <u32>::pow(2, n as u32) - 1;
-    let mut recording: Vec<bool> = vec![false; max as usize + 1];
+    let max = <u32>::pow(2, n as u32);
+    let mut recording: Vec<bool> = vec![false; max as usize];
     recording[0] = true;
     let mut count = 1; // this 1 represents no ingredients
 

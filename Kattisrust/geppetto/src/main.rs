@@ -1,5 +1,6 @@
 /*
-* [Geppetto](https://open.kattis.com/problems/geppetto)
+* Geppetto
+* https://open.kattis.com/problems/geppetto
 * Run time: 0.00s
 */
 use std::io;

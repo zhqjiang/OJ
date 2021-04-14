@@ -1,5 +1,5 @@
 [package]
-name = "vase-collection"
+name = "domino"
 version = "0.1.0"
 authors = ["Jonathan Jiang <you@example.com>"]
 edition = "2018"

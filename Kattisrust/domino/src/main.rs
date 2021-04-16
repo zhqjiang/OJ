@@ -206,8 +206,6 @@ fn split_solve(pairs: &Vec<Domino>, matrix: &Vec<u64>, k: usize) -> i64 {
     let middle = pairs.len() * 2 / 5;
     let mut sum = 0;
     for t in 0..k + 1 {
-        // check whether the clique of first part with the clique of second part
-        // is able to generate a new clique
         if t == 0 {
             sum = max(sum, cal_sum(middle, pairs.len(), k, 0, matrix, pairs));
         } else if t == k {
@@ -216,6 +214,10 @@ fn split_solve(pairs: &Vec<Domino>, matrix: &Vec<u64>, k: usize) -> i64 {
             let first_cliques = get_cliques(0, middle, t, matrix);
             let mut m: HashMap<u64, i64> = HashMap::new();
 
+            // for a given clique of first part,
+            // all posible nodes of second part are stored in optional.
+            // when we check next clique of first part, if the sum of this clique is smaller than
+            // last clique(same optional) we find in hashmap m, we just ignored this clique
             for &i in &first_cliques {
                 let sum_first = calculate(i, pairs);
                 let mut optional: u64 = 0;

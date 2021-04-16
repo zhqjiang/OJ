@@ -3,9 +3,7 @@ struct Board {
     data: [[u8; 9]; 9],
 }
 
-fn check(a: [u8; 9]) -> Result<_, E> {
-
-}
+fn check(a: [u8; 9]) {}
 
 impl Board {
     fn check_error(&self) {

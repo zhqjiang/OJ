@@ -4,17 +4,11 @@
 * max clique
 * use i64 instead of i32, which will results in overflow
 */
+use std::cmp::{max, min};
 use std::collections::HashMap;
 use std::io;
 type Domino = (usize, usize, u8, i64);
-fn max(n1: i64, n2: i64) -> i64 {
-    let sum = if n1 > n2 { n1 } else { n2 };
-    sum
-}
-fn min(n1: usize, n2: usize) -> usize {
-    let sum = if n1 < n2 { n1 } else { n2 };
-    sum
-}
+
 struct MaskIter(u64, usize);
 impl Iterator for MaskIter {
     type Item = usize;

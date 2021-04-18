@@ -37,7 +37,7 @@ fn offset_to_line(point: &(i16, i16)) -> i16 {
 
 // brute method to find non-empty subsets
 // use bitmask to represent a combination
-fn brute(set: &[(i16, i16)], tarsub_of: (i16, i16)) -> u64 {
+fn brute(set: &[(i16, i16)]) -> u64 {
     let mut count = 0;
     let combinations_up_limit = 1 << set.len();
 
@@ -46,7 +46,7 @@ fn brute(set: &[(i16, i16)], tarsub_of: (i16, i16)) -> u64 {
             .into_iter()
             .fold((0, 0), |acc, x| (acc.0 + set[x].0, acc.1 + set[x].1));
 
-        if sum == tarsub_of {
+        if sum == (0, 0) {
             count += 1;
         }
     }
@@ -131,7 +131,7 @@ fn main() {
     let res = if a.len() > 4 {
         split_set(&a)
     } else {
-        brute(&a, (0, 0))
+        brute(&a)
     };
 
     println!("{}", res);

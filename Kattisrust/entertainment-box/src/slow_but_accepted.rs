@@ -1,6 +1,6 @@
 /*
 * https://open.kattis.com/problems/entertainmentbox
-* slow 0.67 s
+* slow
 */
 use std::cmp::Ordering;
 use std::io;
@@ -55,7 +55,6 @@ fn solve(shows: &Vec<Show>, k: usize, n: usize) {
         }
 
         // normal situation
-        let slot_size = slots.len();
         let choosed_slot_idx = match slots.binary_search(&show.begin) {
             Ok(x) => x,
             Err(x) => x - 1,

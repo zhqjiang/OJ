@@ -1,3 +1,6 @@
+/*
+ * https://open.kattis.com/problems/downtime
+ */
 use std::cmp::max;
 use std::io;
 

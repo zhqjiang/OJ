@@ -1,31 +1,37 @@
 impl Solution {
-    // pub fn number_of_steps(num: i32) -> i32 {
-    //     if num == 0 {
-    //         return 0;
-    //     } else {
-    //         return if num % 2 == 1 {
-    //             1 + Solution::number_of_steps(num - 1)
-    //         } else {
-    //             1 + Solution::number_of_steps(num / 2)
+    // pub fn missing_number(nums: Vec<i32>) -> i32 {
+    //     for k in 0..=nums.len() as i32 {
+    //         if !nums.contains(&k) {
+    //             return k;
     //         }
     //     }
+    //     return 0;
     // }
-    // pub fn number_of_steps(num: i32) -> i32 {
-    //     match (num, num % 2 == 1) {
-    //         (0, _) => 0,
-    //         (_, true) => 1 + Solution::number_of_steps(num - 1),
-    //         (_, false) => 1 + Solution::number_of_steps(num / 2),
+
+    // pub fn missing_number(nums: Vec<i32>) -> i32 {
+    //     let mut s = nums.clone();
+    //     s.sort();
+
+    //     for (idx, value) in s.iter().enumerate() {
+    //         if *value != idx as i32 {
+    //             return idx as i32;
+    //         }
     //     }
+
+    //     nums.len() as i32
     // }
-    pub fn number_of_steps(num: i32) -> i32 {
-        num.count_ones() as i32 + (format!("{:b}", num).len()) as i32 - 1
+
+    pub fn missing_number(nums: Vec<i32>) -> i32 {
+        let mut ret = nums.len() as i32;
+        for i in 0..nums.len() {
+            ret ^= i as i32 ^ nums[i];
+        }
+        ret
     }
 }
 
 struct Solution {}
 fn main() {
-    // println!("{:b}", 4);
-    // println!("{:b}", 14);
-    assert_eq!(Solution::number_of_steps(4), 3);
-    assert_eq!(Solution::number_of_steps(14), 6);
+    assert_eq!(Solution::missing_number(vec![3, 0, 1]), 2);
+    assert_eq!(Solution::missing_number(vec![0, 1]), 2);
 }
